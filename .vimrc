@@ -126,6 +126,7 @@ source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 "конфигурация YouComleteMe
 let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
+nmap ] :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " automatically open and close the popup menu / preview window
