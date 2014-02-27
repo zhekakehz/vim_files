@@ -78,6 +78,7 @@ set noic
 "set lazyredraw "отключить визуализацию при выполнении макросов
 set list " Включить подсветку невидимых символов
 set listchars=tab:·\ ,trail:· " Настройка подсветки невидимых символов
+set hidden "переключение буфера без сохранения
 set fileencodings=utf-8,cp1251,koi8-r,cp866 " Список кодировок файлов для автоопределения
 set foldenable "включаем фолдинг
 set fdm=syntax " Метод фолдинга - по синтаксису
@@ -88,7 +89,14 @@ set switchbuf=useopen,usetab,newtab "открывать новый буфер в
 let mapleader = "\\" "биндим <Leader> клавишу
 "set showtabline=2 "Всегда видим вкладки
 "" Go to .proto on gf instead of .pb.h     
-:set includeexpr=substitute(v:fname,'\\.pb\\.h$','.proto','') "
+function GetIncludePath()
+    let repo = $REPO_NAME
+    let ret= fnamemodify(expand("%"), ":p:h:s?" . repo . "/.*$?" . repo . "?")
+    let ret .= "/" . substitute(v:fname,'\\.pb\\.h$','.proto','')
+    return ret
+endfunction
+
+set includeexpr=GetIncludePath()
 
 "Indent and tabulation
 set tabstop=4 " количество пробелов, которыми символ табуляции отображается в тексте
@@ -106,6 +114,7 @@ set ruler "Always show current position
 set showcmd
 " Включаем отображение дополнительной информации в статусной строке
 set statusline=%<%f%h%m%r%=format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P
+"set statusline=%<%F%h%m%r%=type=%y\ format=%{&fileformat}\ file=%{&fileencoding}\ enc=%{&encoding}\ %b\ 0x%B\ %l,%c%V\ %P
 set laststatus=2 "Значение 2 указывает, что строка статуса всегда должна показываться;
 
 "конфигурация NerdTree
@@ -175,7 +184,6 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 nmap <F6> :!~/bin/ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q ./<CR>
 nmap <F12> :nohlsearch<CR>
-nmap <F5> :SyntasticCheck<CR><C-L>
 
 "COLORS
 set t_Co=256

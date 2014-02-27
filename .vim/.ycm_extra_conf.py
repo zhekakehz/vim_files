@@ -34,6 +34,7 @@ repo_name = os.environ['REPO_NAME']
 tail = ''
 (repo_root, repo_name, tail) = os.getcwd().partition(repo_name)
 repo_root += repo_name
+build_root = repo_root + "/release"
 
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
@@ -42,7 +43,7 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-Wc++98-compat',
+#'-Wc++98-compat',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -57,6 +58,7 @@ flags = [
 # For a C project, you would set this to something like 'c99' instead of
 # 'c++11'.
 '-std=c++11',
+'-std=c++0x',
 # ...and the same thing goes for the magic -x option which specifies the
 # language that the files to be compiled are written in. This is mostly
 # relevant for c++ headers.
@@ -79,6 +81,8 @@ flags = [
 './ClangCompleter',
 '-I',
 repo_root,
+'-I',
+build_root,
 '-I',
 repo_root + '/contrib/libs/stlport/stlport-5.1.4',
 '-isystem',
