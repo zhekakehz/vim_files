@@ -24,6 +24,8 @@ ln -s $root/.vimrc
 ln -s $root/.vim
 cd $root
 
+pip install jedi --user
+
 cd .vim/bundle/
 tar xf plugins.tar
 echo "" | vim -c :BundleInstall! -c :qa!
