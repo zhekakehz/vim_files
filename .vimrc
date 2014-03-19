@@ -80,8 +80,8 @@ set list " Включить подсветку невидимых символо
 set listchars=tab:·\ ,trail:· " Настройка подсветки невидимых символов
 set hidden "переключение буфера без сохранения
 set fileencodings=utf-8,cp1251,koi8-r,cp866 " Список кодировок файлов для автоопределения
-set foldenable "включаем фолдинг
-set fdm=syntax " Метод фолдинга - по синтаксису
+"set foldenable "включаем фолдинг
+"set fdm=syntax " Метод фолдинга - по синтаксису
 set keymap=russian-jcukenwin " Настраиваем переключение раскладок клавиатуры по <C-^>
 set iminsert=0 " Раскладка по умолчанию - английская
 set imsearch=0
@@ -131,6 +131,9 @@ let g:tagbar_autofocus = 1
 "конфигурация closetag
 let g:closetag_html_style=1
 source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+
+"jedi config
+let g:jedi#popup_select_first=0
 
 "конфигурация YouComleteMe
 let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
