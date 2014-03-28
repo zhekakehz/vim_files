@@ -183,9 +183,9 @@ let python_highlight_all = 1
 
 " MAPPINGS
 " Очистить подсветку последнего найденного выражения
-nmap <F2> :NERDTreeToggle<CR>
-nmap <F3> :TagbarToggle<CR>
-nmap <F6> :!~/bin/ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q ./<CR>
+nmap <F5> :TagbarToggle<CR>
+nmap <F6> :NERDTreeToggle<CR>
+"nmap <F6> :!~/bin/ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q ./<CR>
 nmap <F12> :nohlsearch<CR>
 
 "COLORS
