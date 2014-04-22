@@ -24,8 +24,8 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'a.vim'
 Bundle 'gmarik/vundle'
+Bundle 'a.vim'
 Bundle 'Mark'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
@@ -39,11 +39,15 @@ Bundle 'vim-indent-object'
 Bundle 'JSON.vim'
 Bundle 'Tagbar'
 Bundle 'EasyMotion'
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/"  }
 Bundle 'davidhalter/jedi-vim'
 Bundle 'closetag.vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'Valloric/YouCompleteMe'
+"plugins for colorschemes
+"Bundle 'CSApprox'
+Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/"  }
+Plugin 'ScrollColors'
+Plugin 'vim-scripts/Colour-Sampler-Pack'
 
 filetype plugin indent on     " required!
 "
@@ -140,9 +144,9 @@ let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
 nmap ] :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <c-w>] :sp<cr>:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-
 " automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+"au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+au InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 " add json filetype
