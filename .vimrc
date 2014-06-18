@@ -46,7 +46,7 @@ Bundle 'Valloric/YouCompleteMe'
 "plugins for colorschemes
 "Bundle 'CSApprox'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/"  }
-Plugin 'ScrollColors'
+"Plugin 'ScrollColors'
 Plugin 'vim-scripts/Colour-Sampler-Pack'
 
 filetype plugin indent on     " required!
