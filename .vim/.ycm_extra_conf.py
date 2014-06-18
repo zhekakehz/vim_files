@@ -34,7 +34,7 @@ repo_name = os.environ['REPO_NAME']
 tail = ''
 (repo_root, repo_name, tail) = os.getcwd().partition(repo_name)
 repo_root += repo_name
-build_root = repo_root + "/release"
+build_root = repo_root + "/../ybuild/latest"
 
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
@@ -43,64 +43,44 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
+
+'-std=c++11',
+
+'-I', repo_root,
+'-I', build_root,
+'-I', repo_root + '/contrib/libs',
+'-I', repo_root + '/contrib/libs/stlport/stlport-5.1.4',
 #'-Wc++98-compat',
-'-Wno-long-long',
+#'-Wno-long-long',
 '-Wno-variadic-macros',
-'-fexceptions',
-'-DNDEBUG',
+
+#'-fexceptions',
+#'-DNDEBUG',
 # You 100% do NOT need -DUSE_CLANG_COMPLETER in your flags; only the YCM
 # source code needs it.
-'-DUSE_CLANG_COMPLETER',
-# THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
-# language to use when compiling headers. So it will guess. Badly. So C++
-# headers will be compiled as C headers. You don't want that so ALWAYS specify
-# a "-std=<something>".
-# For a C project, you would set this to something like 'c99' instead of
-# 'c++11'.
-'-std=c++11',
-'-std=c++0x',
-# ...and the same thing goes for the magic -x option which specifies the
-# language that the files to be compiled are written in. This is mostly
-# relevant for c++ headers.
-# For a C project, you would set this to 'c' instead of 'c++'.
-'-x',
-'c++',
-'-isystem',
-'../BoostParts',
-'-isystem',
-# This path will only work on OS X, but extra paths that don't exist are not
-# harmful
-'/System/Library/Frameworks/Python.framework/Headers',
-'-isystem',
-'../llvm/include',
-'-isystem',
-'../llvm/tools/clang/include',
-'-I',
-'.',
-'-I',
-'./ClangCompleter',
-'-I',
-repo_root,
-'-I',
-build_root,
-'-I',
-repo_root + '/contrib/libs/stlport/stlport-5.1.4',
-'-isystem',
-'./tests/gmock/gtest',
-'-isystem',
-'./tests/gmock/gtest/include',
-'-isystem',
-'./tests/gmock',
-'-isystem',
-'./tests/gmock/include',
-'-isystem',
-'/usr/include',
-'-isystem',
-'/usr/local/include',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
-'-isystem',
-'/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
+#'-DUSE_CLANG_COMPLETER',
+
+#'-x',
+#'c++',
+#'-isystem',
+#'../BoostParts',
+#'-isystem',
+## This path will only work on OS X, but extra paths that don't exist are not
+## harmful
+#'/System/Library/Frameworks/Python.framework/Headers',
+#'-isystem', '../llvm/include',
+#'-isystem', '../llvm/tools/clang/include',
+
+#'-I', '.',
+#'-I', './ClangCompleter',
+#'-isystem', './tests/gmock/gtest',
+#'-isystem', './tests/gmock/gtest/include',
+#'-isystem', './tests/gmock',
+#'-isystem', './tests/gmock/include',
+#'-isystem', '/usr/include',
+#'-isystem', '/usr/local/include',
+#'-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
+#'-isystem', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 ]
 
 
