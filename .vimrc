@@ -39,15 +39,12 @@ Bundle 'vim-indent-object'
 Bundle 'JSON.vim'
 Bundle 'Tagbar'
 Bundle 'EasyMotion'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'closetag.vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
 Bundle 'Valloric/YouCompleteMe'
-"plugins for colorschemes
-"Bundle 'CSApprox'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/"  }
-"Plugin 'ScrollColors'
 Plugin 'vim-scripts/Colour-Sampler-Pack'
+Plugin 'andviro/flake8-vim'
 
 filetype plugin indent on     " required!
 "
@@ -138,6 +135,9 @@ source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 "jedi config
 let g:jedi#popup_select_first=0
+
+"pyflake config
+let g:PyFlakeDisabledMessages = 'E501,E265,E221'
 
 "конфигурация YouComleteMe
 let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
