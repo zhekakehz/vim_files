@@ -1,18 +1,18 @@
 "my configs
 "
 "ninja mode on
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-vnoremap <up> <nop>
-vnoremap <down> <nop>
-vnoremap <left> <nop>
-vnoremap <right> <nop>
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+"vnoremap <up> <nop>
+"vnoremap <down> <nop>
+"vnoremap <left> <nop>
+"vnoremap <right> <nop>
 
 
 "VUNDLE OPTIONS
@@ -138,6 +138,7 @@ let g:jedi#popup_select_first=0
 
 "pyflake config
 let g:PyFlakeDisabledMessages = 'E501,E265,E221'
+let g:PyFlakeCheckers = 'pep8,mccabe'
 
 "конфигурация YouComleteMe
 let g:ycm_global_ycm_extra_conf ='~/.vim/.ycm_extra_conf.py'
@@ -189,6 +190,8 @@ let python_highlight_all = 1
 " Очистить подсветку последнего найденного выражения
 nmap <F5> :TagbarToggle<CR>
 nmap <F6> :NERDTreeToggle<CR>
+nmap <F7> :!g++ --std=c++11 % && ./a.out
+nmap <F8> :1,$!fix_includes.py %<CR>
 "nmap <F6> :!~/bin/ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q ./<CR>
 nmap <F12> :nohlsearch<CR>
 
